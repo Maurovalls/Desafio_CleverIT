@@ -1,0 +1,20 @@
+Las 3 funcionalidades que elegi fueron, boton "Buscar con Google", link "Imagenes" y boton "Me siento con suerte"
+
+Feature: Google Search 
+
+Scenario: The user searchs in google with the button "Search with Google"
+Given The user enters the main page of google
+When  The user writes in the text field "Clever IT"
+And   The user clicks the button "Search with Google"
+Then  The user is redirected to the next page where the name of the page is "Clever IT - Search with Google"
+
+Scenario: The user enters the link Images
+Given The user enters the main page of google
+When  The user clicks the link Images
+Then  The user is redirected to the next page where the name of the page is "Google Images"
+
+Scenario: The user searches in google with the button "I feel lucky"
+Given The user enters the main page of google
+When  The user writes in the text field "River Plate"
+And   The user clicks the button "I feel lucky"
+Then  The user is redirected to the oficial website of River Plate

@@ -1,0 +1,16 @@
+Feature: API
+
+Scenario Outline: Validate API parameters
+Given I perform login
+Then  I should be logged in
+When  I perform a POST operation using as value <agreement>, <cardType>, <amount>, <expirationDate>, <storeId>, <dni>, <sku>, <order> and <subOrder>
+Then  The API response code should be <responseCode> with text <responseText>
+
+Examples:
+| agreement | cardType | amount | expirationDate | storeId | dni      | sku   | order | subOrder | responseCode | responseText           |
+|1          |1         |200000  | "2020-01-31"   |1037     |111111111 | "26"  |30991  |2601      |201           |"Created"               |
+|"1"        |1         |200000  | "2020-01-31"   |1034     |111111111 | "26"  |30991  |2601      |400           |"Bad Request"           |
+|1          |2         |240000  | "2021-01-31"   |1038     |111111212 | "28"  |30998  |2604      |500           |"Internal Server Error" |
+|4          |"1"       |200000  | "2020-01-31"   |1037     |111111111 | "26"  |30991  |2601      |400           |"Bad Request"           |
+|6          |1         |200000  | "20200131"     |1031     |712135812 | "26"  |30999  |2612      |400           |"Bad Request"           |
+|9          |1         |200000  | "2020-01-31"   |1012     |111111111 | "32"  |31991  |2601      |400           |"Bad Request"           |
